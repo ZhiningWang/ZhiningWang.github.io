@@ -10,7 +10,7 @@ http://www.linkedin.com/in/zhining-wang-b7593a176
 
 >Looking for a data analyst internship
 
-![the ocean of data...](\code-matrix.jpg)
+![the ocean of data...](./code-matrix.jpg)
 
 # Work Experience
 
@@ -27,4 +27,4 @@ Summary
 - Dean's list
 - actively involved in extracurricular
 
-[University of Washington]: http://www.uw.edu
+[University of Washington](http://www.uw.edu)
