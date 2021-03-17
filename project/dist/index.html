@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>geog458</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <style>
+
+            html, body, #map { width: 100%; height: 100%; margin: 0; background: #fff; }
+
+            .legend {
+                line-height: 16px;
+                width: 140px;
+                color: #333333;
+                font-family: 'Open Sans';
+                padding: 6px 8px;
+                background: white;
+                background: rgba(255,255,255,0.5);
+                box-shadow: 0 0 15px rgba(0,0,0,0.2);
+                border-radius: 5px;
+            }
+
+            .legend i {
+                width: 16px;
+                height: 16px;
+                float: left;
+                margin-right: 8px;
+                opacity: 0.9;
+            }
+
+            .legend img {
+                width: 16px;
+                height: 16px;
+                margin-right: 3px;
+                float: left;
+            }
+
+            .legend p {
+                font-size: 12px;
+                line-height: 16px;
+                margin: 0;
+            }
+
+        </style>
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.3.4/chroma.min.js"></script>
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">geog458 project </a>
+            <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="" aria-label="Search" aria-describedby="basic-addon2" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                home page
+                            </a>
+                            <a class="nav-link" href="assets/map.jpg">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                map
+                            </a>
+                            <a class="nav-link" href="more_info.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                               more info
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid">
+                        <h1 class="mt-4">Restaurants Operating during Covid</h1>
+                        <h3>Seattle Area</h3>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-primary text-white mb-4">
+                                    <div class="card-body">new opens</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning text-white mb-4">
+                                    <div class="card-body">u-district restaurants</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="map2.html">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-success text-white mb-4">
+                                    <div class="card-body">support small business</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body">dine in</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table mr-1"></i>
+                                search in database
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>longtitude</th>
+                                                <th>laltitude</th>
+                                                <th>objectid</th>
+                                                <th>globalid</th>
+                                                <th>business_name</th>
+                                                <th>address_help_your customer_find</th>
+                                                <th>phone_number_to_place_order</th>
+                                                <th>business_website</th>
+                                                <th>are_you_open_for</th>
+                                                <th>provide_details_for_you_busines</th>
+                                                <th>CreationDate</th>
+                                                <th>EditDate</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                              <th>longtitude</th>
+                                              <th>laltitude</th>
+                                              <th>objectid</th>
+                                              <th>globalid</th>
+                                              <th>business_name</th>
+                                              <th>address_help_your customer_find</th>
+                                              <th>phone_number_to_place_order</th>
+                                              <th>business_website</th>
+                                              <th>are_you_open_for</th>
+                                              <th>provide_details_for_you_busines</th>
+                                              <th>CreationDate</th>
+                                              <th>EditDate</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                              <td>-122.3144254</td>
+                                              <td>47.6147756"</td>
+                                              <td>4</td>
+                                              <td>4b271d79-3283-4e16-bd59-cfadca726051</td>
+                                              <td>Nue</td>
+                                              <td>1519 14th Ave</td>
+                                              <td>206-257-0312</td>
+                                              <td>https://www.nueseattle.com/</td>
+                                              <td>takeout,delivery,third_party_delivery_service</td>
+                                              <td>Open 7 days a week</td>
+                                              <td>2020/03/27 01:38:15.543+00</td>
+                                              <td>2020/03/27 01:38:15.543+00"</td>
+                                            </tr>
+                                            <tr>
+                                              <td>-122.3280836</td>
+                                              <td>47.61443553"</td>
+                                              <td>5</td>
+                                              <td>f4928649-888c-41be-9726-4eb86ae05a08</td>
+                                              <td>Terra Plata</td>
+                                              <td>1501 Melrose Ave Seattle, WA 98122</td>
+                                              <td>(206) 325-1501</td>
+                                              <td>http://www.terraplata.com/</td>
+                                              <td>takeout,curbside,third_party_delivery_service</td>
+                                              <td></td>
+                                              <td>2020/03/27 01:38:15.543+00</td>
+                                              <td>2020/03/27 01:38:15.543+00</td>
+                                            </tr>
+                                            <tr>
+                                              <td>-122.3267947</td>
+                                              <td> 47.59859928</td>
+                                              <td>6</td>
+                                              <td>0745b48d-87a3-4c4e-9910-24340784a738</td>
+                                              <td>A+ Hong Kong Kitchen</td>
+                                              <td>419 6th Ave S, Seattle, WA 98104</td>
+                                              <td>206-682-1267</td>
+                                              <td>https://www.facebook.com/aplushkkitchen/</td>
+                                              <td>takeout,third_party_delivery_service</td>
+                                              <td>Hours 11 am- 10 pm everyday except closed Tuesdays</td>
+                                              <td>2020/03/27 01:38:15.543+00</td>
+                                              <td>2020/06/04 14:54:49.922+00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/datatables-demo.js"></script>
+    </body>
+</html>
