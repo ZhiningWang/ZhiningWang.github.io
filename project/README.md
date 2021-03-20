@@ -1,63 +1,24 @@
-# [Start Bootstrap - SB Admin](https://startbootstrap.com/template/sb-admin/)
+###Restaurants Operating during Covid
 
-[SB Admin](https://startbootstrap.com/template/sb-admin/) is an open source, admin dashboard template for [Bootstrap](https://getbootstrap.com/) created by [Start Bootstrap](https://startbootstrap.com/).
+Introduction
+The goal of the project is to provide a platform that allows users to search information about restaurants that operate during the pandemic in the Seattle area, allows the business owners to input new data and other related information into the database as well as stores and updates the data for other interactive uses. In addition, further goals of the project would be to help out people and restaurants that are in need (as well as other business if more data is available). What is more, I also think it is possible for the project to be developed into a mobile app that centers on covid time lifestyle or be integrated into bigger mobile services such as Google Map and Yelp to provide more accurate and up-to-date information. In the following paragraphs, I will talk about the audiences, data and reflection of the project and demonstrate the design and functions of the web map too.
 
-## Preview
+Data
+According to the Seattle government, the data covers “restaurants, bars, cafes, and breweries in King, Pierce, and Snohomish counties” and is compiled from “publicly available sources and from self-reporting by business owners through a survey hosted by the City of Seattle, along with the he original dataset that is part of the City’s #SupportSeattleSmallBiz campaign, for restaurants, bars, cafes, and breweries that are doing delivery, to-go, and drive-through”.
+The data was created on Oct 16, 2020 and last updated on Jan 1, 2021.
+https://data.seattle.gov/dataset/Restaurants-Operating-during-COVID19/sg8s-8k6z
 
-[![SB Admin Preview](https://assets.startbootstrap.com/img/screenshots/templates/sb-admin.png)](https://startbootstrap.github.io/startbootstrap-sb-admin/)
+Webmap
+The web map is implemented using web programing languages such as html, css and javascript. The fundamental framework is based on Bootstrap, a free and open-source CSS framework directed at responsive, mobile-first front-end web development that contains CSS- and JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components.
 
-**[View Live Preview](https://startbootstrap.github.io/startbootstrap-sb-admin/)**
+Major functions
+-enable the input of restaurants data
+-store the restaurants dataset
+-visualize the dataset and provide data insight
+-enable the search of restaurants and related information
+-display the locations of restaurants on a dynamic map
 
-## Status
-
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/StartBootstrap/startbootstrap-sb-admin/master/LICENSE)
-[![npm version](https://img.shields.io/npm/v/startbootstrap-sb-admin.svg)](https://www.npmjs.com/package/startbootstrap-sb-admin)
-[![Build Status](https://travis-ci.org/StartBootstrap/startbootstrap-sb-admin.svg?branch=master)](https://travis-ci.org/StartBootstrap/startbootstrap-sb-admin)
-[![dependencies Status](https://david-dm.org/StartBootstrap/startbootstrap-sb-admin/status.svg)](https://david-dm.org/StartBootstrap/startbootstrap-sb-admin)
-[![devDependencies Status](https://david-dm.org/StartBootstrap/startbootstrap-sb-admin/dev-status.svg)](https://david-dm.org/StartBootstrap/startbootstrap-sb-admin?type=dev)
-
-## Download and Installation
-
-To begin using this template, choose one of the following options to get started:
-
-* [Download the latest release on Start Bootstrap](https://startbootstrap.com/template/sb-admin/)
-* Install via npm: `npm i startbootstrap-sb-admin`
-* Clone the repo: `git clone https://github.com/StartBootstrap/startbootstrap-sb-admin.git`
-* [Fork, Clone, or Download on GitHub](https://github.com/StartBootstrap/startbootstrap-sb-admin)
-
-## Usage
-
-### Basic Usage
-
-After downloading, simply edit the HTML and CSS files included with the template in your favorite text editor to make changes. These are the only files you need to worry about, you can ignore everything else! To preview the changes you make to the code, you can open the `index.html` file in your web browser.
-
-### Advanced Usage
-
-After installation, run `npm install` and then run `npm start` which will open up a preview of the template in your default browser, watch for changes to core template files, and live reload the browser when changes are saved. You can view the `scripts/` directory to see which tasks are included with the dev environment.
-
-## Bugs and Issues
-
-Have a bug or an issue with this template? [Open a new issue](https://github.com/StartBootstrap/startbootstrap-sb-admin/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](https://startbootstrap.com/template/sb-admin/).
-
-## Custom Builds
-
-You can hire Start Bootstrap to create a custom build of any template, or create something from scratch using Bootstrap. For more information, visit the **[custom design services page](https://startbootstrap.com/bootstrap-design-services/)**.
-
-## About
-
-Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
-
-* <https://startbootstrap.com>
-* <https://twitter.com/SBootstrap>
-
-Start Bootstrap was created by and is maintained by **[David Miller](https://davidmiller.io/)**.
-
-* <https://davidmiller.io>
-* <https://twitter.com/davidmillerhere>
-* <https://github.com/davidtmiller>
-
-Start Bootstrap is based on the [Bootstrap](https://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
-
-## Copyright and License
-
-Copyright 2013-2020 Start Bootstrap LLC. Code released under the [MIT](https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/gh-pages/LICENSE) license.
+Elements
+-scalar bar: located at bottom left, display the scale in both metrics and miles
+-zoom: located at bottom right, “+” represents zoom in and “-” represents zoom out
+-legend: located rat bottom right, change with data selection(for example, in “u-district” map layer, all the locations are marked in green which will be specified in the legend)

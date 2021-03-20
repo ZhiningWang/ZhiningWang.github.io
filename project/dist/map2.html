@@ -81,12 +81,12 @@
         // Then each (point) feature will bind a popup window.
         // The content of the popup window is the value of `feature.properties.CNTL_TWR`
         onEachFeature: function (feature, layer) {
-            layer.bindPopup(feature.properties.business_name);
+            layer.bindPopup('<h1>'+feature.properties.business_name+'</h1><p>'+feature.properties.address_help_your_customer_find+'</p>');
         },
         pointToLayer: function (feature, latlng) {
             var id = 0;
             if (feature.properties.ud == 1) { id = 0; }
-            else { id = 1;}
+            //else { id = 1;}
             return L.marker(latlng, {icon: L.divIcon({className: 'fa fa-circle marker-color-' + (id + 1).toString() })});
         }
     }).addTo(mymap);
@@ -99,9 +99,9 @@
 
         // Create Div Element and Populate it with HTML
         var div = L.DomUtil.create('div', 'legend');
-        div.innerHTML += '<hr><b>u-district<b><br />';
-        div.innerHTML += '<i class="fa fa-circle marker-color-1"></i><p> yes</p>';
-        div.innerHTML += '<i class="fa fa-circle marker-color-2"></i><p> no</p>';
+        div.innerHTML += '<hr><b>theme<b><br />';
+        div.innerHTML += '<i class="fa fa-circle marker-color-1"></i><p> u district</p>';
+        //div.innerHTML += '<i class="fa fa-circle marker-color-2"></i><p> no</p>';
         // Return the Legend div containing the HTML content
         return div;
     };
